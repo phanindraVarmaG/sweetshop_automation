@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="77" failures="0" errors="0" time="0.625">
+  <testsuite name="E2E | Full Order Lifecycle" errors="0" failures="0" skipped="0" timestamp="2026-04-25T10:18:07" time="0.2" tests="12">
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 1 | Register a new user account" time="0.022">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 2 | Login with the registered user" time="0.007">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 3 | Browse the product catalog and pick a product" time="0.003">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 4 | Fetch product details for the chosen product" time="0.003">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 5 | Add chosen product to the cart" time="0.003">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 6 | Verify cart contains the added product" time="0.004">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 7 | Place an order from the cart" time="0.003">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 8 | Retrieve and verify order details" time="0.002">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 9 | Process payment for the order via credit_card" time="0.003">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 10 | Verify payment details are persisted correctly" time="0.003">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 11 | Duplicate payment on the same order should return 409" time="0.002">
+    </testcase>
+    <testcase classname="E2E | Full Order Lifecycle" name="Step 12 | Cancel a freshly placed order" time="0.01">
+    </testcase>
+  </testsuite>
+  <testsuite name="Orders API" errors="0" failures="0" skipped="0" timestamp="2026-04-25T10:18:07" time="0.095" tests="12">
+    <testcase classname="Orders API &gt; POST /orders" name="TC-ORD-001 | should return 201 and orderId when cart has items" time="0.007">
+    </testcase>
+    <testcase classname="Orders API &gt; POST /orders" name="TC-ORD-002 | order total should be a positive number" time="0.004">
+    </testcase>
+    <testcase classname="Orders API &gt; POST /orders" name="TC-ORD-003 | should return 400 when cart is empty" time="0.004">
+    </testcase>
+    <testcase classname="Orders API &gt; POST /orders" name="TC-ORD-004 | should return 401 without auth token" time="0.002">
+    </testcase>
+    <testcase classname="Orders API &gt; GET /orders/:orderId" name="TC-ORD-005 | should return 200 with order details for valid orderId" time="0.003">
+    </testcase>
+    <testcase classname="Orders API &gt; GET /orders/:orderId" name="TC-ORD-006 | order status should be a valid enum value" time="0.002">
+    </testcase>
+    <testcase classname="Orders API &gt; GET /orders/:orderId" name="TC-ORD-007 | should return 404 for non-existent orderId" time="0.002">
+    </testcase>
+    <testcase classname="Orders API &gt; GET /orders/:orderId" name="TC-ORD-008 | should return 401 without auth token" time="0.002">
+    </testcase>
+    <testcase classname="Orders API &gt; DELETE /orders/:orderId/cancel" name="TC-ORD-009 | should return 200 and cancelled status for a pending order" time="0.006">
+    </testcase>
+    <testcase classname="Orders API &gt; DELETE /orders/:orderId/cancel" name="TC-ORD-010 | cancelled order should reflect cancelled status in GET" time="0.007">
+    </testcase>
+    <testcase classname="Orders API &gt; DELETE /orders/:orderId/cancel" name="TC-ORD-011 | should return 404 when cancelling a non-existent order" time="0.006">
+    </testcase>
+    <testcase classname="Orders API &gt; DELETE /orders/:orderId/cancel" name="TC-ORD-012 | should return 401 without auth token" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="Payments API" errors="0" failures="0" skipped="0" timestamp="2026-04-25T10:18:07" time="0.101" tests="15">
+    <testcase classname="Payments API &gt; POST /payments" name="TC-PAY-001 | should return 201 with paymentId for a valid order" time="0.009">
+    </testcase>
+    <testcase classname="Payments API &gt; POST /payments" name="TC-PAY-002 | should accept payment method: credit_card" time="0.008">
+    </testcase>
+    <testcase classname="Payments API &gt; POST /payments" name="TC-PAY-002 | should accept payment method: debit_card" time="0.006">
+    </testcase>
+    <testcase classname="Payments API &gt; POST /payments" name="TC-PAY-002 | should accept payment method: upi" time="0.006">
+    </testcase>
+    <testcase classname="Payments API &gt; POST /payments" name="TC-PAY-002 | should accept payment method: net_banking" time="0.005">
+    </testcase>
+    <testcase classname="Payments API &gt; POST /payments" name="TC-PAY-003 | should return 409 when payment already processed for order" time="0.007">
+    </testcase>
+    <testcase classname="Payments API &gt; POST /payments" name="TC-PAY-004 | should return 404 for non-existent orderId" time="0.002">
+    </testcase>
+    <testcase classname="Payments API &gt; POST /payments" name="TC-PAY-005 | should return 400 when method is missing" time="0.002">
+    </testcase>
+    <testcase classname="Payments API &gt; POST /payments" name="TC-PAY-006 | should return 400 when orderId is missing" time="0.003">
+    </testcase>
+    <testcase classname="Payments API &gt; POST /payments" name="TC-PAY-007 | should return 401 without auth token" time="0.004">
+    </testcase>
+    <testcase classname="Payments API &gt; GET /payments/:paymentId" name="TC-PAY-008 | should return 200 with payment details for valid paymentId" time="0.001">
+    </testcase>
+    <testcase classname="Payments API &gt; GET /payments/:paymentId" name="TC-PAY-009 | payment amount should be a positive number" time="0.003">
+    </testcase>
+    <testcase classname="Payments API &gt; GET /payments/:paymentId" name="TC-PAY-010 | payment method should match the one used during initiation" time="0.001">
+    </testcase>
+    <testcase classname="Payments API &gt; GET /payments/:paymentId" name="TC-PAY-011 | should return 404 for non-existent paymentId" time="0.005">
+    </testcase>
+    <testcase classname="Payments API &gt; GET /payments/:paymentId" name="TC-PAY-012 | should return 401 without auth token" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Cart API" errors="0" failures="0" skipped="0" timestamp="2026-04-25T10:18:08" time="0.069" tests="15">
+    <testcase classname="Cart API &gt; POST /cart/items" name="TC-CART-001 | should return 201 when adding a valid item to cart" time="0.003">
+    </testcase>
+    <testcase classname="Cart API &gt; POST /cart/items" name="TC-CART-002 | cartTotal should reflect the added item price" time="0.007">
+    </testcase>
+    <testcase classname="Cart API &gt; POST /cart/items" name="TC-CART-003 | should return 401 when no auth token provided" time="0.001">
+    </testcase>
+    <testcase classname="Cart API &gt; POST /cart/items" name="TC-CART-004 | should return 401 for an invalid/expired token" time="0.001">
+    </testcase>
+    <testcase classname="Cart API &gt; POST /cart/items" name="TC-CART-005 | should return 400 when productId is missing" time="0.001">
+    </testcase>
+    <testcase classname="Cart API &gt; POST /cart/items" name="TC-CART-006 | should return 400 when quantity is missing" time="0.002">
+    </testcase>
+    <testcase classname="Cart API &gt; POST /cart/items" name="TC-CART-007 | should return 404 for a non-existent product" time="0.003">
+    </testcase>
+    <testcase classname="Cart API &gt; GET /cart" name="TC-CART-008 | should return 200 with cart contents" time="0.002">
+    </testcase>
+    <testcase classname="Cart API &gt; GET /cart" name="TC-CART-009 | itemCount should match items array length" time="0.002">
+    </testcase>
+    <testcase classname="Cart API &gt; GET /cart" name="TC-CART-010 | subtotal should be a non-negative number" time="0.001">
+    </testcase>
+    <testcase classname="Cart API &gt; GET /cart" name="TC-CART-011 | should return 401 without auth token" time="0.003">
+    </testcase>
+    <testcase classname="Cart API &gt; DELETE /cart/items/:itemId" name="TC-CART-012 | should return 200 when removing an existing cart item" time="0.002">
+    </testcase>
+    <testcase classname="Cart API &gt; DELETE /cart/items/:itemId" name="TC-CART-013 | cartTotal should decrease after item removal" time="0.004">
+    </testcase>
+    <testcase classname="Cart API &gt; DELETE /cart/items/:itemId" name="TC-CART-014 | should return 401 without auth token" time="0.001">
+    </testcase>
+    <testcase classname="Cart API &gt; DELETE /cart/items/:itemId" name="TC-CART-015 | should return 404 for item not in cart" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Products API" errors="0" failures="0" skipped="0" timestamp="2026-04-25T10:18:08" time="0.055" tests="11">
+    <testcase classname="Products API &gt; GET /products" name="TC-PROD-001 | should return 200 with product list" time="0.004">
+    </testcase>
+    <testcase classname="Products API &gt; GET /products" name="TC-PROD-002 | should return products with correct schema" time="0.002">
+    </testcase>
+    <testcase classname="Products API &gt; GET /products" name="TC-PROD-003 | should filter products by category" time="0.003">
+    </testcase>
+    <testcase classname="Products API &gt; GET /products" name="TC-PROD-004 | should honour limit parameter" time="0.002">
+    </testcase>
+    <testcase classname="Products API &gt; GET /products" name="TC-PROD-005 | should return page metadata matching request" time="0.002">
+    </testcase>
+    <testcase classname="Products API &gt; GET /products" name="TC-PROD-006 | should support combined category + pagination params" time="0.001">
+    </testcase>
+    <testcase classname="Products API &gt; GET /products" name="TC-PROD-007 | should return empty data array for out-of-range page" time="0.003">
+    </testcase>
+    <testcase classname="Products API &gt; GET /products/:id" name="TC-PROD-008 | should return 200 with product details for valid id" time="0.003">
+    </testcase>
+    <testcase classname="Products API &gt; GET /products/:id" name="TC-PROD-009 | should return 404 for non-existent product id" time="0.001">
+    </testcase>
+    <testcase classname="Products API &gt; GET /products/:id" name="TC-PROD-010 | product price should be a positive number" time="0.003">
+    </testcase>
+    <testcase classname="Products API &gt; GET /products/:id" name="TC-PROD-011 | product stock should be a non-negative integer" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="Auth API" errors="0" failures="0" skipped="0" timestamp="2026-04-25T10:18:08" time="0.06" tests="12">
+    <testcase classname="Auth API &gt; POST /auth/login" name="TC-AUTH-001 | should return 200 and a token for valid credentials" time="0.005">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/login" name="TC-AUTH-002 | should return 401 for invalid password" time="0.002">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/login" name="TC-AUTH-003 | should return 400 when email is missing" time="0.002">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/login" name="TC-AUTH-004 | should return 400 when password is missing" time="0.003">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/login" name="TC-AUTH-005 | should return 401 for empty credentials" time="0.002">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/login" name="TC-AUTH-006 | should return 401 for correct email but wrong password" time="0.002">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/register" name="TC-AUTH-007 | should return 201 and userId for a new user" time="0.003">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/register" name="TC-AUTH-008 | should return 409 when email already exists" time="0.002">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/register" name="TC-AUTH-009 | should return 400 when name is missing" time="0.002">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/register" name="TC-AUTH-010 | should return 400 when email is missing" time="0.002">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/register" name="TC-AUTH-011 | should return 400 when password is missing" time="0.003">
+    </testcase>
+    <testcase classname="Auth API &gt; POST /auth/register" name="TC-AUTH-012 | newly registered user should be able to login" time="0.005">
+    </testcase>
+  </testsuite>
+</testsuites>

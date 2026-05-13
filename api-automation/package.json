@@ -1,0 +1,30 @@
+{
+  "name": "shopeasy-api-automation",
+  "version": "1.0.0",
+  "description": "API automation test suite for ShopEasy Order Management API",
+  "scripts": {
+    "test": "jest --runInBand",
+    "test:coverage": "jest --runInBand --coverage",
+    "test:auth": "jest --testPathPattern=tests/auth --runInBand",
+    "test:products": "jest --testPathPattern=tests/products --runInBand",
+    "test:cart": "jest --testPathPattern=tests/cart --runInBand",
+    "test:orders": "jest --testPathPattern=tests/orders --runInBand",
+    "test:payments": "jest --testPathPattern=tests/payments --runInBand",
+    "test:e2e": "jest --testPathPattern=tests/e2e --runInBand",
+    "test:report": "jest --runInBand --coverage && open reports/execution-report.html"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.0",
+    "jest": "^29.7.0",
+    "jest-html-reporter": "^3.10.2",
+    "jest-junit": "^16.0.0",
+    "ts-jest": "^29.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5"
+  }
+}

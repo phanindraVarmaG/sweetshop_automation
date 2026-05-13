@@ -1,0 +1,260 @@
+<html><head><meta charset="utf-8"/><title>ShopEasy API — Execution Report</title><style type="text/css">html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+body {
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+}
+.jesthtml-content {
+  margin: 0 auto;
+  max-width: 70rem;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+#title {
+  margin: 0;
+  flex-grow: 1;
+}
+#logo {
+  height: 4rem;
+}
+#timestamp {
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/** SUMMARY */
+#summary {
+  color: #333;
+  margin: 2rem 0;
+  display: flex;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#summary > div {
+  margin-right: 2rem;
+  background: #eee;
+  padding: 1rem;
+  min-width: 15rem;
+}
+#summary > div:last-child {
+  margin-right: 0;
+}
+@media only screen and (max-width: 720px) {
+  #summary {
+    flex-direction: column;
+  }
+  #summary > div {
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  #summary > div:first-child {
+    margin-top: 0;
+  }
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.summary-passed {
+  color: #4f8a10;
+  border-left: 0.4rem solid #4f8a10;
+  padding-left: 0.5rem;
+}
+.summary-failed,
+.summary-obsolete-snapshots {
+  color: #d8000c;
+  border-left: 0.4rem solid #d8000c;
+  padding-left: 0.5rem;
+}
+.summary-pending {
+  color: #9f6000;
+  border-left: 0.4rem solid #9f6000;
+  padding-left: 0.5rem;
+}
+.summary-empty {
+  color: #999;
+  border-left: 0.4rem solid #999;
+}
+
+.test-result {
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+.test-result:last-child {
+  border: 0;
+}
+.test-result.passed {
+  background-color: #dff2bf;
+  color: #4f8a10;
+}
+.test-result.failed {
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.test-result.pending {
+  background-color: #ffdf61;
+  color: #9f6000;
+}
+
+.test-info {
+  display: flex;
+  justify-content: space-between;
+}
+.test-suitename {
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  word-break: break-word;
+}
+.test-title {
+  width: 40%;
+  text-align: left;
+  font-style: italic;
+}
+.test-status {
+  width: 20%;
+  text-align: right;
+}
+.test-duration {
+  width: 10%;
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+.failureMessages {
+  padding: 0 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed #d8000c;
+}
+.failureMessages.suiteFailure {
+  border-top: none;
+}
+.failureMsg {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.suite-container {
+  margin-bottom: 2rem;
+}
+.suite-container > input[type="checkbox"] {
+  position: absolute;
+  left: -100vw;
+}
+.suite-container label {
+  display: block;
+}
+.suite-container .suite-tests {
+  overflow-y: hidden;
+  height: 0;
+}
+.suite-container > input[type="checkbox"]:checked ~ .suite-tests {
+  height: auto;
+  overflow: visible;
+}
+.suite-info {
+  padding: 1rem;
+  background-color: #eee;
+  color: #777;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.suite-info:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+.suite-info .suite-path {
+  word-break: break-all;
+  flex-grow: 1;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.suite-info .suite-time {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+  background-color: #d8000c;
+  color: #fff;
+}
+.suite-info:before {
+  content: "\2303";
+  display: inline-block;
+  margin-right: 0.5rem;
+  transform: rotate(0deg);
+}
+.suite-container > input[type="checkbox"]:checked ~ label .suite-info:before {
+  transform: rotate(180deg);
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #efefef;
+}
+.suite-consolelog-header {
+  font-weight: bold;
+}
+.suite-consolelog-item {
+  padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-consolelog-item-origin {
+  color: #777;
+  font-weight: bold;
+}
+.suite-consolelog-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* OBSOLETE SNAPSHOTS */
+.suite-obsolete-snapshots {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.suite-obsolete-snapshots-header {
+  font-weight: bold;
+}
+.suite-obsolete-snapshots-item {
+  padding: 0.5rem;
+}
+.suite-obsolete-snapshots-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-obsolete-snapshots-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+</style></head><body><div class="jesthtml-content"><header><h1 id="title">ShopEasy API — Execution Report</h1></header><div id="metadata-container"><div id="timestamp">Started: 2026-04-25 15:48:07</div><div id="summary"><div id="suite-summary"><div class="summary-total">Suites (6)</div><div class="summary-passed ">6 passed</div><div class="summary-failed  summary-empty">0 failed</div><div class="summary-pending  summary-empty">0 pending</div></div><div id="test-summary"><div class="summary-total">Tests (77)</div><div class="summary-passed ">77 passed</div><div class="summary-failed  summary-empty">0 failed</div><div class="summary-pending  summary-empty">0 pending</div></div></div></div><div id="suite-1" class="suite-container"><input id="collapsible-0" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-0"><div class="suite-info"><div class="suite-path">/Users/Sidharth/Desktop/Divami/sweetshop_automation/api-automation/tests/e2e/full-order-flow.spec.ts</div><div class="suite-time">0.2s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 1 | Register a new user account</div><div class="test-status">passed</div><div class="test-duration">0.022s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 2 | Login with the registered user</div><div class="test-status">passed</div><div class="test-duration">0.007s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 3 | Browse the product catalog and pick a product</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 4 | Fetch product details for the chosen product</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 5 | Add chosen product to the cart</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 6 | Verify cart contains the added product</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 7 | Place an order from the cart</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 8 | Retrieve and verify order details</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 9 | Process payment for the order via credit_card</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 10 | Verify payment details are persisted correctly</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 11 | Duplicate payment on the same order should return 409</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">E2E | Full Order Lifecycle</div><div class="test-title">Step 12 | Cancel a freshly placed order</div><div class="test-status">passed</div><div class="test-duration">0.01s</div></div></div></div></div><div id="suite-2" class="suite-container"><input id="collapsible-1" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-1"><div class="suite-info"><div class="suite-path">/Users/Sidharth/Desktop/Divami/sweetshop_automation/api-automation/tests/orders/orders.spec.ts</div><div class="suite-time">0.095s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; POST /orders</div><div class="test-title">TC-ORD-001 | should return 201 and orderId when cart has items</div><div class="test-status">passed</div><div class="test-duration">0.007s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; POST /orders</div><div class="test-title">TC-ORD-002 | order total should be a positive number</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; POST /orders</div><div class="test-title">TC-ORD-003 | should return 400 when cart is empty</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; POST /orders</div><div class="test-title">TC-ORD-004 | should return 401 without auth token</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; GET /orders/:orderId</div><div class="test-title">TC-ORD-005 | should return 200 with order details for valid orderId</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; GET /orders/:orderId</div><div class="test-title">TC-ORD-006 | order status should be a valid enum value</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; GET /orders/:orderId</div><div class="test-title">TC-ORD-007 | should return 404 for non-existent orderId</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; GET /orders/:orderId</div><div class="test-title">TC-ORD-008 | should return 401 without auth token</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; DELETE /orders/:orderId/cancel</div><div class="test-title">TC-ORD-009 | should return 200 and cancelled status for a pending order</div><div class="test-status">passed</div><div class="test-duration">0.006s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; DELETE /orders/:orderId/cancel</div><div class="test-title">TC-ORD-010 | cancelled order should reflect cancelled status in GET</div><div class="test-status">passed</div><div class="test-duration">0.007s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; DELETE /orders/:orderId/cancel</div><div class="test-title">TC-ORD-011 | should return 404 when cancelling a non-existent order</div><div class="test-status">passed</div><div class="test-duration">0.006s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Orders API &gt; DELETE /orders/:orderId/cancel</div><div class="test-title">TC-ORD-012 | should return 401 without auth token</div><div class="test-status">passed</div><div class="test-duration">0.008s</div></div></div></div></div><div id="suite-3" class="suite-container"><input id="collapsible-2" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-2"><div class="suite-info"><div class="suite-path">/Users/Sidharth/Desktop/Divami/sweetshop_automation/api-automation/tests/payments/payments.spec.ts</div><div class="suite-time">0.101s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; POST /payments</div><div class="test-title">TC-PAY-001 | should return 201 with paymentId for a valid order</div><div class="test-status">passed</div><div class="test-duration">0.009s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; POST /payments</div><div class="test-title">TC-PAY-002 | should accept payment method: credit_card</div><div class="test-status">passed</div><div class="test-duration">0.008s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; POST /payments</div><div class="test-title">TC-PAY-002 | should accept payment method: debit_card</div><div class="test-status">passed</div><div class="test-duration">0.006s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; POST /payments</div><div class="test-title">TC-PAY-002 | should accept payment method: upi</div><div class="test-status">passed</div><div class="test-duration">0.006s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; POST /payments</div><div class="test-title">TC-PAY-002 | should accept payment method: net_banking</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; POST /payments</div><div class="test-title">TC-PAY-003 | should return 409 when payment already processed for order</div><div class="test-status">passed</div><div class="test-duration">0.007s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; POST /payments</div><div class="test-title">TC-PAY-004 | should return 404 for non-existent orderId</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; POST /payments</div><div class="test-title">TC-PAY-005 | should return 400 when method is missing</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; POST /payments</div><div class="test-title">TC-PAY-006 | should return 400 when orderId is missing</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; POST /payments</div><div class="test-title">TC-PAY-007 | should return 401 without auth token</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; GET /payments/:paymentId</div><div class="test-title">TC-PAY-008 | should return 200 with payment details for valid paymentId</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; GET /payments/:paymentId</div><div class="test-title">TC-PAY-009 | payment amount should be a positive number</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; GET /payments/:paymentId</div><div class="test-title">TC-PAY-010 | payment method should match the one used during initiation</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; GET /payments/:paymentId</div><div class="test-title">TC-PAY-011 | should return 404 for non-existent paymentId</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Payments API &gt; GET /payments/:paymentId</div><div class="test-title">TC-PAY-012 | should return 401 without auth token</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-4" class="suite-container"><input id="collapsible-3" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-3"><div class="suite-info"><div class="suite-path">/Users/Sidharth/Desktop/Divami/sweetshop_automation/api-automation/tests/cart/cart.spec.ts</div><div class="suite-time">0.069s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; POST /cart/items</div><div class="test-title">TC-CART-001 | should return 201 when adding a valid item to cart</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; POST /cart/items</div><div class="test-title">TC-CART-002 | cartTotal should reflect the added item price</div><div class="test-status">passed</div><div class="test-duration">0.007s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; POST /cart/items</div><div class="test-title">TC-CART-003 | should return 401 when no auth token provided</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; POST /cart/items</div><div class="test-title">TC-CART-004 | should return 401 for an invalid/expired token</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; POST /cart/items</div><div class="test-title">TC-CART-005 | should return 400 when productId is missing</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; POST /cart/items</div><div class="test-title">TC-CART-006 | should return 400 when quantity is missing</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; POST /cart/items</div><div class="test-title">TC-CART-007 | should return 404 for a non-existent product</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; GET /cart</div><div class="test-title">TC-CART-008 | should return 200 with cart contents</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; GET /cart</div><div class="test-title">TC-CART-009 | itemCount should match items array length</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; GET /cart</div><div class="test-title">TC-CART-010 | subtotal should be a non-negative number</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; GET /cart</div><div class="test-title">TC-CART-011 | should return 401 without auth token</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; DELETE /cart/items/:itemId</div><div class="test-title">TC-CART-012 | should return 200 when removing an existing cart item</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; DELETE /cart/items/:itemId</div><div class="test-title">TC-CART-013 | cartTotal should decrease after item removal</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; DELETE /cart/items/:itemId</div><div class="test-title">TC-CART-014 | should return 401 without auth token</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Cart API &gt; DELETE /cart/items/:itemId</div><div class="test-title">TC-CART-015 | should return 404 for item not in cart</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-5" class="suite-container"><input id="collapsible-4" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-4"><div class="suite-info"><div class="suite-path">/Users/Sidharth/Desktop/Divami/sweetshop_automation/api-automation/tests/products/products.spec.ts</div><div class="suite-time">0.055s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products</div><div class="test-title">TC-PROD-001 | should return 200 with product list</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products</div><div class="test-title">TC-PROD-002 | should return products with correct schema</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products</div><div class="test-title">TC-PROD-003 | should filter products by category</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products</div><div class="test-title">TC-PROD-004 | should honour limit parameter</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products</div><div class="test-title">TC-PROD-005 | should return page metadata matching request</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products</div><div class="test-title">TC-PROD-006 | should support combined category + pagination params</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products</div><div class="test-title">TC-PROD-007 | should return empty data array for out-of-range page</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products/:id</div><div class="test-title">TC-PROD-008 | should return 200 with product details for valid id</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products/:id</div><div class="test-title">TC-PROD-009 | should return 404 for non-existent product id</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products/:id</div><div class="test-title">TC-PROD-010 | product price should be a positive number</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Products API &gt; GET /products/:id</div><div class="test-title">TC-PROD-011 | product stock should be a non-negative integer</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div></div></div><div id="suite-6" class="suite-container"><input id="collapsible-5" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-5"><div class="suite-info"><div class="suite-path">/Users/Sidharth/Desktop/Divami/sweetshop_automation/api-automation/tests/auth/auth.spec.ts</div><div class="suite-time">0.06s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/login</div><div class="test-title">TC-AUTH-001 | should return 200 and a token for valid credentials</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/login</div><div class="test-title">TC-AUTH-002 | should return 401 for invalid password</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/login</div><div class="test-title">TC-AUTH-003 | should return 400 when email is missing</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/login</div><div class="test-title">TC-AUTH-004 | should return 400 when password is missing</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/login</div><div class="test-title">TC-AUTH-005 | should return 401 for empty credentials</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/login</div><div class="test-title">TC-AUTH-006 | should return 401 for correct email but wrong password</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/register</div><div class="test-title">TC-AUTH-007 | should return 201 and userId for a new user</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/register</div><div class="test-title">TC-AUTH-008 | should return 409 when email already exists</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/register</div><div class="test-title">TC-AUTH-009 | should return 400 when name is missing</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/register</div><div class="test-title">TC-AUTH-010 | should return 400 when email is missing</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/register</div><div class="test-title">TC-AUTH-011 | should return 400 when password is missing</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Auth API &gt; POST /auth/register</div><div class="test-title">TC-AUTH-012 | newly registered user should be able to login</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div></div></div></div></body></html>
